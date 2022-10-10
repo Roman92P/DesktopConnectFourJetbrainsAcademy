@@ -16,4 +16,8 @@ public class CellButton extends JButton {
         super.setFont(new Font("Arial", Font.BOLD, 12));
     }
 
+    @Override
+    public String getText() {
+        return super.getText();
+    }
 }

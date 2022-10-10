@@ -28,6 +28,8 @@ public class ConnectFour extends JFrame implements ActionListener {
                 add(cellButton);
             }
         }
+
+
         setLayout(new GridLayout(6, 7));
         setVisible(true);
     }
@@ -36,6 +38,14 @@ public class ConnectFour extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         String buttonFieldText = actionEvent.getActionCommand();
         CellButton source = (CellButton) actionEvent.getSource();
+        String buttonName = source.getName().substring(0, "ButtonN".length());
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(buttonName);
+        stringBuilder.append(".*");
+        String columnFilter = stringBuilder.toString();
+        Container contentPane = this.getContentPane();
+        source = EmptyCellFinder.findFirstEmptyCellInColumn(contentPane, columnFilter);
+        System.out.println(source.getName());
         if (controlSign.equals(" ") || controlSign.equals("O")) {
             source.setText("X");
             controlSign = "X";
