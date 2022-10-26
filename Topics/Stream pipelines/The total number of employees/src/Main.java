@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Scanner;
 
 class EmployeesCounter {
 
@@ -10,14 +11,7 @@ class EmployeesCounter {
      * @return the number of employees
      */
     public static long calcNumberOfEmployees(List<Department> departments, long threshold) {
-        return departments.stream()
-                .filter(department -> department.code.matches("111-.*"))
-                .map(Department::getEmployees)
-                .flatMapToDouble(employees -> {
-                    return employees.stream()
-                            .mapToDouble(employee -> employee.getSalary());
-                }).filter(v -> v >= threshold)
-                .count();
+        return 0;
     }
 
     // Don't change the code below
